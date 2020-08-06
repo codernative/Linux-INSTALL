@@ -1,0 +1,15 @@
+xorg ( full package for display manager)
+
+* cp /etc/X11/xinit/xinitrc .xinitrc ( copy xintrc to home )
+    # setting keyboard layout
+    setxkbmap (keyboard eg 'ch' ) & 
+    #Compositor
+    picom -f &
+    #excute the Window manager
+    exec dwm
+
+nitrogen (walpaper change)
+
+picom ( compositor for windo opacity & shadow )
+
+dmenu ( for search menu )
