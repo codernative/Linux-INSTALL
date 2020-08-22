@@ -5,8 +5,9 @@ First need to add some additional fonts.
 ```
 sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation
 ```
+```
 yay -S ttf-ms-fonts ttf-vista-fonts ttf-monaco ttf-qurancomplex-fonts 
-
+```
 
 
 
