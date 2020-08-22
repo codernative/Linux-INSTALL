@@ -1,7 +1,7 @@
 # To improve the fonts in Arch 
 
 
-First need to add some additional fonts.  
+### First need to add some additional fonts.  
 ```
 sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation
 ```
