@@ -1,5 +1,0 @@
-wget https//....( to fetch some file )
-
-tar -xzvf filename.tar,gz ( to extract )
-
-sudo make clean install uncompressed file
