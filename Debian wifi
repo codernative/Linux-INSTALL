@@ -1,0 +1,26 @@
+Create the file 'wpa_supplicant.conf'...
+
+$ sudo nano /etc/wpa_supplicant.conf
+
+Put the following in ti:
+
+network={
+         ssid="your_wifi_name"
+         psk="your_wifi_password"
+}
+
+Save, exit 'nano' and run 'ip a' to get your wlan interface name. In my case, is 'wlp2s0'. So, you can run...
+
+$ sudo ip link set wlp2s0 down
+$ sudo ip link set wlp2s0 up
+$ sudo wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant.conf -Dnl80211,wext
+$ sudo dhclient wlp2s0
+
+Should work... maybe... :)
+
+After a reboot, just run:
+
+$ sudo wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant.conf -Dnl80211,wext
+$ sudo dhclient wlp2s0
+
+
