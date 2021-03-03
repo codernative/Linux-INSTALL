@@ -137,14 +137,14 @@ Generate the locales by running:
 https://wiki.archlinux.org/index.php/GRUB
 
 
-###Enable Network Manager
+### Enable Network Manager
 
 `# systemctl enable Networkmanger`
 
 `# nmtui` select network
 
 
-##Add user
+## Add user
 
 `# useradd -mG wheel ckajeer`
 
@@ -155,7 +155,7 @@ https://wiki.archlinux.org/index.php/GRUB
 `# EDTOR=vim visudo` uncomment *%wheel ALL=(ALL) ALL
 
 
-##EXIT
+## EXIT
 
 `# exit`
 
