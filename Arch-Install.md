@@ -1,16 +1,16 @@
 
-**For the key issues**
+## For the key issues
 
 `gpg --keyserver pool.sks-keyservers.net --recv-keys 95D2E9AB8740D8046387FD151A09227B1F435A33`
 
 
-**Install reflector for Updating fast mirrorlist**
+## Install reflector for Updating fast mirrorlist
 
 `# sudo pacman -Syy reflector`
 `# reflector -c india -a 6 --sort rate --save /etc/pacman.d/mirrorlist`
 
 
-**Wifi Settings**
+## Wifi Settings
 1. `# iwctl`
 2. `# wsc list` to find wifi device
 3. `# wsc wlan0* push-button`
@@ -19,12 +19,12 @@
 6. `# station wlan0* connect elrod*`
 
 
-**BIOS or EFI**
+## BIOS or EFI
 
 `# ls /sys/firmware/efi/efivars` if cannot access it BIOS
 
 
-**Partition of disk**
+## Partition of disk
 
 `# gdisk /dev/sda` for partitioning EFI partition.
 
@@ -37,14 +37,14 @@
 https://wiki.archlinux.org/index.php/GPT_fdisk
 
 
-**Make file system**
+## Make file system
 
 `# mkfs.fat -F32 /dev/sda1` for efi
 
 `# mkfs.ext4 /dev/sda2*` root or home
 
 
-**Mount**
+## Mount
 
 `# mount /dev/sda2 /mnt`
 
@@ -53,12 +53,12 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 `# mount /dev/sda1 /mnt/boot/efi`
 
 
-**Install package using _pacstrap_**
+## Install package using _pacstrap_
 
 `# pacstrap /mnt base linux linux-firmware intel-ucode vim` basic installation
 
 
-**Generating fstab**
+## Generating fstab
 
 `# genfstab -U /mnt >> /mnt/etc/fstab`
 
@@ -68,7 +68,7 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 `# arch-chroot /mnt`
 
 
-**Swapfile**
+## Swapfile
 
 `# dd if=/dev/zero of=swapfile bs=1G count=4`
 
@@ -83,7 +83,7 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 /swapfile none swap default 0 0 
 
 
-**Time and date and language**
+## Time and date and language
 
 `# ln -sf /usr/share/zoneinfo/Asia/Riyad /etc/localtime`
 
@@ -112,7 +112,7 @@ Generate the locales by running:
 `# psswd`
 
 
-**Install requred packages**
+##Install requred packages
 
 `# pacman -S grub efibootmgr networkmanager networkmanger-applet os-prober dialog reflector wpa_supplicant mtools dosfstools base-devel linux-headers git bluez bluez-utils alsa-utils pulseaudio pulseaudio-bluetooth acpi acpi_call xf86-video-intel nvidia nvidia-utils nvidia-settings xorg`
 
@@ -128,7 +128,7 @@ Generate the locales by running:
 `zsh` : zsh shell
 
 
-**Install GRUB**
+## Install GRUB
 
 `# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB`
 
