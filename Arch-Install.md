@@ -3,6 +3,7 @@
 
 `gpg --keyserver pool.sks-keyservers.net --recv-keys 95D2E9AB8740D8046387FD151A09227B1F435A33`
 
+
 **Install reflector for Updating fast mirrorlist**
 
 `# sudo pacman -Syy reflector`
@@ -17,9 +18,11 @@
 5. `# staton wlan0* get-networks`
 6. `# station wlan0* connect elrod*`
 
+
 **BIOS or EFI**
 
 `# ls /sys/firmware/efi/efivars` if cannot access it BIOS
+
 
 **Partition of disk**
 
@@ -33,11 +36,13 @@
 
 https://wiki.archlinux.org/index.php/GPT_fdisk
 
+
 **Make file system**
 
 `# mkfs.fat -F32 /dev/sda1` for efi
 
 `# mkfs.ext4 /dev/sda2*` root or home
+
 
 **Mount**
 
@@ -47,17 +52,21 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 
 `# mount /dev/sda1 /mnt/boot/efi`
 
+
 **Install package using _pacstrap_**
 
 `# pacstrap /mnt base linux linux-firmware intel-ucode vim` basic installation
+
 
 **Generating fstab**
 
 `# genfstab -U /mnt >> /mnt/etc/fstab`
 
+
 **chroot to arch**
 
 `# arch-chroot /mnt`
+
 
 **Swapfile**
 
@@ -73,7 +82,8 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 
 /swapfile none swap default 0 0 
 
-**time and date and language**
+
+**Time and date and language**
 
 `# ln -sf /usr/share/zoneinfo/Asia/Riyad /etc/localtime`
 
@@ -96,13 +106,16 @@ Generate the locales by running:
 
 *127.0.1.1	myhostname.localdomain	myhostname*
 
+
 **Create password**
 
 `# psswd`
 
+
 **Install requred packages**
 
 `# pacman -S grub efibootmgr networkmanager networkmanger-applet os-prober dialog reflector wpa_supplicant mtools dosfstools base-devel linux-headers git bluez bluez-utils alsa-utils pulseaudio pulseaudio-bluetooth acpi acpi_call xf86-video-intel nvidia nvidia-utils nvidia-settings xorg`
+
 
 **Extra some packages**
 
@@ -114,6 +127,7 @@ Generate the locales by running:
 
 `zsh` : zsh shell
 
+
 **Install GRUB**
 
 `# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB`
@@ -122,11 +136,13 @@ Generate the locales by running:
 
 https://wiki.archlinux.org/index.php/GRUB
 
+
 **Enable Network Manager**
 
 `# systemctl enable Networkmanger`
 
 `# nmtui` select network
+
 
 **Add user**
 
@@ -137,6 +153,7 @@ https://wiki.archlinux.org/index.php/GRUB
 `# usermod -c `Ajeer ck` ckajeer`
 
 `# EDTOR=vim visudo` uncomment *%wheel ALL=(ALL) ALL
+
 
 **EXIT**
 
