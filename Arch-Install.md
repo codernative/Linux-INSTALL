@@ -114,7 +114,7 @@ Generate the locales by running:
 
 ##Install requred packages
 
-`# pacman -S grub efibootmgr networkmanager networkmanger-applet os-prober dialog reflector wpa_supplicant mtools dosfstools base-devel linux-headers git bluez bluez-utils alsa-utils pulseaudio pulseaudio-bluetooth acpi acpi_call xf86-video-intel nvidia nvidia-utils nvidia-settings xorg`
+`# pacman -S grub efibootmgr networkmanager networkmanger-applet os-prober dialog reflector wpa_supplicant mtools dosfstools base-devel linux-headers git bluez bluez-utils alsa-utils pulseaudio pulseaudio-bluetooth acpi acpi_call xf86-video-intel nvidia nvidia-utils nvidia-settings xorg xorg-server xorg-xinit`
 
 
 **Extra some packages**
@@ -129,7 +129,15 @@ Generate the locales by running:
 
 `picom` : compositor
 
-`alacritty` : Terminal (`termite`,`st`)
+`alacritty` : Terminal (`termite`,`st`) 
+
+`ranger` : terminal file manager 
+
+`pfetch` : system details (`neofetch`)
+
+`pcmanfm` : file manager (`dolphin`)
+
+
 
 
 ## Install GRUB
