@@ -80,7 +80,7 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 
 `# vim /etc/fstab` 
 
-/swapfile none swap default 0 0 
+_/swapfile none swap default 0 0 _
 
 
 ## Time and date and language
