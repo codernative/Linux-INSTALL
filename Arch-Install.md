@@ -8,9 +8,12 @@
 `sudo pacman -Syy reflector`
 
 **Wifi Settings**
-1. `iwctl`
-2. `wsc list` to find wifi device
-3. `wsc wlan0* push-button`
-4. `station wlan0* scan`
-5. `staton wlan0* get-networks`
+1. `# iwctl`
+2. `# wsc list` to find wifi device
+3. `# wsc wlan0* push-button`
+4. `# station wlan0* scan`
+5. `# staton wlan0* get-networks`
 6. `station wlan0* connect elrod*`
+
+**BIOS or EFI**
+`# ls `
