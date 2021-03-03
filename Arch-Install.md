@@ -119,13 +119,17 @@ Generate the locales by running:
 
 **Extra some packages**
 
-`lightdm` : display manager
+`lightdm` : display manager (`sddm`)
 
 `cups` : printer
 
-`feh` : image viewer and set background
+`feh` : image viewer and set background (`nitrogen`)
 
-`zsh` : zsh shell
+`zsh` : zsh shell (`fish`)
+
+`picom` : compositor
+
+`alacritty` : Terminal (`termite`,`st`)
 
 
 ## Install GRUB
@@ -150,7 +154,7 @@ https://wiki.archlinux.org/index.php/GRUB
 
 `# passwd ckajeer`
 
-`# usermod -c `Ajeer ck` ckajeer`
+`# usermod -c 'Ajeer ck' ckajeer`
 
 `# EDTOR=vim visudo` uncomment *%wheel ALL=(ALL) ALL
 
