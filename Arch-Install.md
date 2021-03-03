@@ -36,12 +36,15 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 **Make file system**
 
 `# mkfs.fat -F32 /dev/sda1` for efi
+
 `# mkfs.ext4 /dev/sda2*` root or home
 
 **Mount**
 
 `# mount /dev/sda2 /mnt`
+
 `# mkdir -p /mnt/boot/efi`
+
 `# mount /dev/sda1 /mnt/boot/efi`
 
 **Install package using _pacstrap_**
@@ -59,21 +62,28 @@ https://wiki.archlinux.org/index.php/GPT_fdisk
 **Swapfile**
 
 `# dd if=/dev/zero of=swapfile bs=1G count=4`
+
 `# chmod 600 /swapfile` permission
+
 `# mkswap /swapfile`
+
 `# swapon /swapfile`
+
 `# vim /etc/fstab` 
+
 /swapfile none swap default 0 0 
 
 **time and date and language**
 
 `# ln -sf /usr/share/zoneinfo/Asia/Riyad /etc/localtime`
+
 `# hwclock --systohc` update hardware clock
 
 Edit `/etc/locale.gen` and uncomment en_US.UTF-8 UTF-8 and other needed locales
 Generate the locales by running: 
 
 `# locale-gen`
+
 `# echo "LANG=en_US.UTF-8" >>  /etc/locale.conf`
 
 `# vim /etc/hostname` your host name *eg: MyBrokenHP*
@@ -81,7 +91,9 @@ Generate the locales by running:
 `# vim /etc/hosts` 
 
 *127.0.0.1	localhost*
+
 *::1		localhost*
+
 *127.0.1.1	myhostname.localdomain	myhostname*
 
 **Create password**
@@ -95,13 +107,17 @@ Generate the locales by running:
 **Extra some packages**
 
 `lightdm` : display manager
+
 `cups` : printer
+
 `feh` : image viewer and set background
+
 `zsh` : zsh shell
 
 **Install GRUB**
 
 `# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB`
+
 `# grub-mkconfig -o /boot/grub/grub.cfg`
 
 https://wiki.archlinux.org/index.php/GRUB
@@ -109,18 +125,24 @@ https://wiki.archlinux.org/index.php/GRUB
 **Enable Network Manager**
 
 `# systemctl enable Networkmanger`
+
 `# nmtui` select network
 
 **Add user**
 
 `# useradd -mG wheel ckajeer`
+
 `# passwd ckajeer`
+
 `# usermod -c `Ajeer ck` ckajeer`
+
 `# EDTOR=vim visudo` uncomment *%wheel ALL=(ALL) ALL
 
 **EXIT**
 
 `# exit`
+
 `# umount -a`
+
 `# reboot`
 
