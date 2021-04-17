@@ -1,0 +1,41 @@
+#!/bin/bash
+
+ln -sf /usr/share/zoneinfo/Asia/Riyadh /etc/localtime
+hwclock --systohc
+sed -i '177s/.//' /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+echo "arch" >> /etc/hostname
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1       localhost" >> /etc/hosts
+echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
+#echo root:0000 | chpasswd
+
+
+pacman -S --noconfirm grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant base-devel linux-headers bluez bluez-utils alsa-utils pulseaudio bash-completion rsync reflector os-prober 
+
+# mtools dosfstool savahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils cups hplip openssh acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat ebtables iptables ipset firewalld flatpak sof-firmware nss-mdns acpid ntfs-3g terminus-font
+# inetutils (several commants need to chk )
+
+pacman -S --noconfirm xf86-video-intel nvidia nvidia-utils nvidia-settings xorg xorg-xinit
+pacman -S --noconfirm snapper
+
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable NetworkManager
+systemctl enable bluetooth
+systemctl enable reflector.timer
+
+useradd -m ajeer
+#echo ajeer:0000 | chpasswd
+usermod -aG sudo ajeer
+
+echo "ajeer ALL=(ALL) ALL" >> /etc/sudoers.d/ajeer
+
+
+printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
+
+
+
+
